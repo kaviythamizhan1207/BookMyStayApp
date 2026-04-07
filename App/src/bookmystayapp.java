@@ -1,29 +1,38 @@
 /**
- * The entry point for the Hotel Booking Management System.
- * This class establishes a clear starting point for the application,
- * demonstrating basic execution flow and console output.
+ * The entry point for Use Case 2 of the Hotel Booking System.
+ * Demonstrates polymorphism, object initialization, and static availability state management.
  *
  * @author Kaviyathamizhan G.
- * @version 1.0
+ * @version 2.0
  */
-public class UseCase1HotelBookingApp {
+public class UseCase2RoomInitialization {
 
-    /**
-     * The main method is the entry point of every standalone Java application.
-     * The JVM invokes this method to begin execution.
-     *
-     * @param args Command line arguments (not utilized in this use case).
-     */
     public static void main(String[] args) {
-
-        // Print a welcome message and system version using String literals
         System.out.println("*************************************************");
-        System.out.println("* *");
-        System.out.println("* Welcome to the Hotel Booking System v1.0   *");
-        System.out.println("* *");
-        System.out.println("*************************************************");
+        System.out.println("* Welcome to the Hotel Booking System v2.0    *");
+        System.out.println("*************************************************\n");
 
-        // Indicate successful application entry and execution flow
-        System.out.println("\nSystem initialization complete. Awaiting operations...");
+        // 1. Polymorphism: Creating concrete objects using the Abstract reference type
+        Room singleRoom = new SingleRoom();
+        Room doubleRoom = new DoubleRoom();
+        Room suiteRoom = new SuiteRoom();
+
+        // 2. Static Availability Representation: Using simple variables (State management)
+        // This highlights the limitations of hardcoded state before arrays/lists are introduced.
+        int availableSingleRooms = 10;
+        int availableDoubleRooms = 5;
+        int availableSuiteRooms = 2;
+
+        System.out.println("--- Room Types and Details ---");
+        singleRoom.displayDetails();
+        doubleRoom.displayDetails();
+        suiteRoom.displayDetails();
+
+        System.out.println("\n--- Current Static Availability ---");
+        System.out.println(singleRoom.getRoomType() + " Availability: " + availableSingleRooms);
+        System.out.println(doubleRoom.getRoomType() + " Availability: " + availableDoubleRooms);
+        System.out.println(suiteRoom.getRoomType() + " Availability: " + availableSuiteRooms);
+
+        System.out.println("\nSystem operation complete.");
     }
 }
